@@ -1,0 +1,25 @@
+name: Production Live Deployment Pipeline
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Assets
+        uses: actions/checkout@v4
+
+      - name: Inject Secure Endpoint Matrix
+        run: |
+          sed -i "s|##SECRET_APPS_SCRIPT_URL##|${{ secrets.APPS_SCRIPT_URL }}|g" index.html
+
+      - name: Deploy Compiled Distribution to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
+          branch: gh-pages
