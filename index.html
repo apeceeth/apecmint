@@ -212,6 +212,20 @@
             </div>
             <span class="mt-2 text-lg font-black tracking-wide text-stone-600">Collector Hub</span>
         </div>
+
+        <div onclick="triggerLockedPrompt()" class="folder-item flex flex-col items-center text-center cursor-pointer opacity-40 relative">
+            <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#555555" stroke="#000000" stroke-width="5"/>
+                <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center top-6">
+                <div class="bg-black text-white text-[10px] uppercase font-bold p-1 border-2 border-black rounded flex items-center gap-1">
+                    <svg class="w-3 h-3 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zM7 7a3 3 0 016 0v2H7V7z"/></svg>
+                    <span>Coming Later</span>
+                </div>
+            </div>
+            <span class="mt-2 text-lg font-black tracking-wide text-stone-600">$APEC</span>
+        </div>
     </div>
 
     <footer class="w-full text-center py-4 text-stone-600 font-mono text-xs tracking-widest mt-8">
@@ -254,7 +268,7 @@
                             <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Mission Task 2 of 4</span>
                             <h3 class="text-lg font-black">Repost the Official Collection Post</h3>
                         </div>
-                        <button onclick="triggerTaskAction(2, 'https://x.com')" class="w-full cartoon-btn py-3">Repost</button>
+                        <button onclick="triggerTaskAction(2, 'https://x.com/APECETH/status/2068705595276902658')" class="w-full cartoon-btn py-3">Repost</button>
                     </div>
 
                     <div id="step-3" class="hidden space-y-4">
@@ -262,7 +276,7 @@
                             <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Mission Task 3 of 4</span>
                             <h3 class="text-lg font-black">Like the Official Collection Post</h3>
                         </div>
-                        <button onclick="triggerTaskAction(3, 'https://x.com')" class="w-full cartoon-btn py-3">Like</button>
+                        <button onclick="triggerTaskAction(3, 'https://x.com/APECETH/status/2068705595276902658')" class="w-full cartoon-btn py-3">Like</button>
                     </div>
 
                     <div id="step-4" class="hidden space-y-4">
@@ -271,7 +285,7 @@
                             <h3 class="text-lg font-black">Comment on Official Post</h3>
                             <p class="text-stone-400 text-xs mt-1 font-bold">Tag 3 friends. Add your wallet address.</p>
                         </div>
-                        <button onclick="triggerTaskAction(4, 'https://x.com')" class="w-full cartoon-btn py-3">Comment Official Post</button>
+                        <button onclick="triggerTaskAction(4, 'https://x.com/APECETH/status/2068705595276902658')" class="w-full cartoon-btn py-3">Comment Official Post</button>
                         <div id="field-comment-container" class="hidden space-y-2 pt-2">
                             <label class="block text-xs uppercase text-stone-400 font-bold">Paste Comment Status Link</label>
                             <input type="url" id="input-comment-link" placeholder="https://x.com/.../status/..." class="w-full p-3 cartoon-input font-bold outline-none text-sm">
