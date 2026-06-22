@@ -16,81 +16,81 @@
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
         }
-        .apec-frame {
+        .cartoon-box {
             border: 6px solid #000000;
             box-shadow: 10px 10px 0px #000000;
         }
-        .apec-frame-white {
+        .cartoon-box-white {
             border: 6px solid #ffffff;
             box-shadow: 10px 10px 0px #ffffff;
         }
-        .apec-frame-red {
+        .cartoon-box-red {
             border: 6px solid #FF3B30;
             box-shadow: 10px 10px 0px #FF3B30;
         }
-        .apec-btn {
+        .cartoon-btn {
             background-color: #ffffff;
             color: #000000;
-            border: 4px solid #000000;
+            border: 5px solid #000000;
             box-shadow: 6px 6px 0px #000000;
             font-weight: 900;
             transition: transform 0.05s ease, box-shadow 0.05s ease;
         }
-        .apec-btn:hover:not(:disabled) {
-            background-color: #F5F5F5;
+        .cartoon-btn:hover:not(:disabled) {
+            background-color: #F0F0F0;
         }
-        .apec-btn:active:not(:disabled) {
+        .cartoon-btn:active:not(:disabled) {
             transform: translate(3px, 3px);
             box-shadow: 3px 3px 0px #000000;
         }
-        .apec-btn:disabled {
-            background-color: #444444;
-            color: #111111;
+        .cartoon-btn:disabled {
+            background-color: #555555;
+            color: #222222;
             cursor: not-allowed;
             box-shadow: none;
             transform: none;
         }
-        .apec-btn-red {
+        .cartoon-btn-red {
             background-color: #FF3B30;
             color: #ffffff;
         }
-        .apec-btn-red:hover:not(:disabled) {
+        .cartoon-btn-red:hover:not(:disabled) {
             background-color: #E03025;
         }
-        .folder-wrapper {
+        .folder-item {
             transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .folder-wrapper:hover {
-            transform: scale(1.06) rotate(-1deg);
+        .folder-item:hover {
+            transform: scale(1.08) rotate(-2deg);
         }
-        @keyframes customFolderOpen {
-            0% { transform: scale(0.5) rotate(-3deg); opacity: 0; }
+        @keyframes folderOpen {
+            0% { transform: scale(0.4) rotate(-5deg); opacity: 0; }
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
-        .window-open-animation {
-            animation: customFolderOpen 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.15) forwards;
+        .window-animate {
+            animation: folderOpen 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.2) forwards;
         }
-        @keyframes rapidGlitch {
+        @keyframes glitchEffect {
             0% { transform: translate(0) skew(0deg); filter: hue-rotate(0deg); }
-            20% { transform: translate(-4px, 2px) skew(-3deg); filter: hue-rotate(60deg); }
-            40% { transform: translate(3px, -3px) skew(3deg); filter: hue-rotate(120deg); }
-            60% { transform: translate(-2px, -1px) skew(-1deg); filter: hue-rotate(240deg); }
-            80% { transform: translate(4px, 3px) skew(4deg); filter: hue-rotate(300deg); }
+            15% { transform: translate(-6px, 4px) skew(-5deg); filter: hue-rotate(90deg); }
+            30% { transform: translate(5px, -5px) skew(5deg); filter: hue-rotate(180deg); }
+            45% { transform: translate(-4px, -3px) skew(-3deg); filter: hue-rotate(270deg); }
+            60% { transform: translate(6px, 5px) skew(6deg); filter: hue-rotate(360deg); }
             100% { transform: translate(0) skew(0deg); filter: none; }
         }
         .glitch-active {
-            animation: rapidGlitch 0.15s linear infinite;
+            animation: glitchEffect 0.15s linear infinite;
         }
-        .glow-red {
+        .soft-glow-red {
             box-shadow: 0 0 40px rgba(255, 59, 48, 0.6);
         }
-        .apec-input {
+        .cartoon-input {
             background-color: #111111;
-            border: 4px solid #ffffff;
+            border: 5px solid #ffffff;
             color: #ffffff;
             font-weight: 600;
         }
-        .apec-input:focus {
+        .cartoon-input:focus {
             outline: none;
             border-color: #FFD214;
         }
@@ -98,9 +98,7 @@
 </head>
 <body class="min-h-screen p-4 md:p-10 flex flex-col justify-between">
 
-    <div id="sound-preload-container" class="hidden"></div>
-
-    <div class="max-w-xl mx-auto w-full bg-black text-white p-6 mb-8 apec-frame apec-frame-white">
+    <div class="max-w-xl mx-auto w-full bg-black text-white p-6 mb-8 cartoon-box cartoon-box-white">
         <div class="flex justify-between items-start border-b-4 border-black pb-3 mb-4">
             <div>
                 <h2 class="text-3xl font-black tracking-tight">APEC</h2>
@@ -118,8 +116,8 @@
         </div>
     </div>
 
-    <div class="max-w-4xl mx-auto w-full grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12 pb-12">
-        <div onclick="openApecFolder('window-whitelist')" class="folder-wrapper flex flex-col items-center text-center cursor-pointer">
+    <div class="max-w-4xl mx-auto w-full grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12 pt-4 mb-auto">
+        <div onclick="openFolder('window-whitelist')" class="folder-item flex flex-col items-center text-center cursor-pointer">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#FFD214" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
@@ -129,7 +127,7 @@
             <span class="mt-2 text-lg font-black tracking-wide">Whitelist</span>
         </div>
 
-        <div onclick="openApecFolder('window-mint')" class="folder-wrapper flex flex-col items-center text-center cursor-pointer">
+        <div onclick="openFolder('window-mint')" class="folder-item flex flex-col items-center text-center cursor-pointer">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#14FF73" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
@@ -138,7 +136,7 @@
             <span class="mt-2 text-lg font-black tracking-wide">Mint</span>
         </div>
 
-        <a href="https://opensea.io" target="_blank" onclick="triggerSystemClick(event)" class="folder-wrapper flex flex-col items-center text-center cursor-pointer">
+        <a href="https://opensea.io" target="_blank" onclick="handleGenericClick(event)" class="folder-item flex flex-col items-center text-center cursor-pointer">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#14A2FF" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
@@ -146,7 +144,7 @@
             <span class="mt-2 text-lg font-black tracking-wide">OpenSea</span>
         </a>
 
-        <div onclick="openApecFolder('window-gallery')" class="folder-wrapper flex flex-col items-center text-center cursor-pointer">
+        <div onclick="openFolder('window-gallery')" class="folder-item flex flex-col items-center text-center cursor-pointer">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#FF14B4" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
@@ -156,7 +154,7 @@
             <span class="mt-2 text-lg font-black tracking-wide">APEC Gallery</span>
         </div>
 
-        <div onclick="openApecFolder('window-roadmap')" class="folder-wrapper flex flex-col items-center text-center cursor-pointer">
+        <div onclick="openFolder('window-roadmap')" class="folder-item flex flex-col items-center text-center cursor-pointer">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#FF7814" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
@@ -165,7 +163,7 @@
             <span class="mt-2 text-lg font-black tracking-wide">Roadmap</span>
         </div>
 
-        <div onclick="openApecFolder('window-community')" class="folder-wrapper flex flex-col items-center text-center cursor-pointer">
+        <div onclick="openFolder('window-community')" class="folder-item flex flex-col items-center text-center cursor-pointer">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#14FFDF" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
@@ -173,146 +171,147 @@
             <span class="mt-2 text-lg font-black tracking-wide">Community</span>
         </div>
 
-        <div onclick="triggerLockedFeedback()" class="folder-wrapper flex flex-col items-center text-center cursor-pointer opacity-30 relative">
+        <div onclick="triggerLockedPrompt()" class="folder-item flex flex-col items-center text-center cursor-pointer opacity-40 relative">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#444444" stroke="#000000" stroke-width="5"/>
+                <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#555555" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
             </svg>
-            <div class="absolute inset-0 flex items-center justify-center top-5">
-                <div class="bg-black text-white text-[9px] uppercase font-bold p-1 border-2 border-black rounded flex items-center gap-1">
-                    <svg class="w-2.5 h-2.5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zM7 7a3 3 0 016 0v2H7V7z"/></svg>
+            <div class="absolute inset-0 flex items-center justify-center top-6">
+                <div class="bg-black text-white text-[10px] uppercase font-bold p-1 border-2 border-black rounded flex items-center gap-1">
+                    <svg class="w-3 h-3 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zM7 7a3 3 0 016 0v2H7V7z"/></svg>
                     <span>Coming Later</span>
                 </div>
             </div>
-            <span class="mt-2 text-lg font-black tracking-wide text-stone-700">Burn</span>
+            <span class="mt-2 text-lg font-black tracking-wide text-stone-600">Burn</span>
         </div>
 
-        <div onclick="triggerLockedFeedback()" class="folder-wrapper flex flex-col items-center text-center cursor-pointer opacity-30 relative">
+        <div onclick="triggerLockedPrompt()" class="folder-item flex flex-col items-center text-center cursor-pointer opacity-40 relative">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#444444" stroke="#000000" stroke-width="5"/>
+                <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#555555" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
             </svg>
-            <div class="absolute inset-0 flex items-center justify-center top-5">
-                <div class="bg-black text-white text-[9px] uppercase font-bold p-1 border-2 border-black rounded flex items-center gap-1">
-                    <svg class="w-2.5 h-2.5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zM7 7a3 3 0 016 0v2H7V7z"/></svg>
+            <div class="absolute inset-0 flex items-center justify-center top-6">
+                <div class="bg-black text-white text-[10px] uppercase font-bold p-1 border-2 border-black rounded flex items-center gap-1">
+                    <svg class="w-3 h-3 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zM7 7a3 3 0 016 0v2H7V7z"/></svg>
                     <span>Coming Later</span>
                 </div>
             </div>
-            <span class="mt-2 text-lg font-black tracking-wide text-stone-700">APEC Studio</span>
+            <span class="mt-2 text-lg font-black tracking-wide text-stone-600">APEC Studio</span>
         </div>
 
-        <div onclick="triggerLockedFeedback()" class="folder-wrapper flex flex-col items-center text-center cursor-pointer opacity-30 relative">
+        <div onclick="triggerLockedPrompt()" class="folder-item flex flex-col items-center text-center cursor-pointer opacity-40 relative">
             <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#444444" stroke="#000000" stroke-width="5"/>
+                <path d="M6 18C6 14.134 9.13401 11 13 11H38L47 22H87C90.866 22 94 25.134 94 29V83C94 86.866 90.866 90 87 90H13C9.13401 90 6 86.866 6 83V18Z" fill="#555555" stroke="#000000" stroke-width="5"/>
                 <path d="M14 36H86" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
             </svg>
-            <div class="absolute inset-0 flex items-center justify-center top-5">
-                <div class="bg-black text-white text-[9px] uppercase font-bold p-1 border-2 border-black rounded flex items-center gap-1">
-                    <svg class="w-2.5 h-2.5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zM7 7a3 3 0 016 0v2H7V7z"/></svg>
+            <div class="absolute inset-0 flex items-center justify-center top-6">
+                <div class="bg-black text-white text-[10px] uppercase font-bold p-1 border-2 border-black rounded flex items-center gap-1">
+                    <svg class="w-3 h-3 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2V7a5 5 0 00-5-5zM7 7a3 3 0 016 0v2H7V7z"/></svg>
                     <span>Coming Later</span>
                 </div>
             </div>
-            <span class="mt-2 text-lg font-black tracking-wide text-stone-700">Collector Hub</span>
+            <span class="mt-2 text-lg font-black tracking-wide text-stone-600">Collector Hub</span>
         </div>
     </div>
 
-    <div id="apec-alert-box" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-sm w-full px-4 hidden">
-        <div class="bg-black border-4 border-white p-4 text-white text-center font-bold text-sm apec-frame apec-frame-white">
-            <p id="apec-alert-msg"></p>
-            <button onclick="dismissCustomAlert()" class="mt-3 px-4 py-1.5 apec-btn text-xs">Dismiss</button>
-        </div>
-    </div>
-
-    <footer class="w-full text-center py-4 text-stone-600 font-mono text-xs tracking-widest">
+    <footer class="w-full text-center py-4 text-stone-600 font-mono text-xs tracking-widest mt-8">
         apeconchain.xyz
     </footer>
 
-    <div id="modal-container" class="fixed inset-0 bg-black/85 z-40 hidden flex items-center justify-center p-3 overflow-y-auto">
+    <div id="custom-alert" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 hidden">
+        <div class="bg-black text-white border-[6px] border-black cartoon-box-white max-w-sm w-full p-6 text-center space-y-4">
+            <h3 id="custom-alert-title" class="text-xl font-black uppercase tracking-wide text-yellow-400">Notice</h3>
+            <p id="custom-alert-msg" class="text-sm font-bold text-stone-300"></p>
+            <button onclick="dismissAlert()" class="w-full cartoon-btn py-2 text-sm">OK</button>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="fixed inset-0 bg-black/80 z-40 hidden flex items-center justify-center p-3 overflow-y-auto">
         
-        <div id="window-whitelist" class="window-pane w-full max-w-lg bg-black border-[6px] border-black apec-frame-white hidden window-open-animation overflow-hidden my-auto">
+        <div id="window-whitelist" class="window-panel w-full max-w-lg bg-black border-[6px] border-black cartoon-box-white hidden window-animate overflow-hidden my-auto">
             <div class="bg-white text-black p-3 flex justify-between items-center border-b-4 border-black">
-                <span class="font-black uppercase tracking-wider text-lg">Whitelist Verification Pipeline</span>
+                <span class="font-black uppercase tracking-wider text-lg">Whitelist Mission Vault</span>
                 <button onclick="closeActiveFolder()" class="bg-black text-white px-3 py-1 font-black text-sm border-2 border-black hover:bg-stone-800 transition-colors">X</button>
             </div>
-            <div class="p-5 md:p-6 text-white max-h-[75vh] overflow-y-auto">
-                <div id="whitelist-workflow">
+            <div class="p-5 md:p-6 text-white max-h-[80vh] overflow-y-auto">
+                <div id="mission-wizard">
                     
                     <div id="step-1" class="space-y-4">
                         <div class="bg-stone-900 p-4 border-2 border-stone-800">
-                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Task 1 of 4</span>
-                            <h3 class="text-lg font-black">Follow Official X Channel</h3>
+                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Mission Task 1 of 4</span>
+                            <h3 class="text-lg font-black">Follow the Official X Channel</h3>
                         </div>
-                        <a href="https://x.com/APECETH" target="_blank" onclick="triggerWlTaskAction(1)" class="block text-center w-full apec-btn py-3 text-md">Follow @APECETH</a>
-                        <div id="username-input-field" class="hidden space-y-2 pt-2">
-                            <label class="block text-xs uppercase text-stone-400 font-bold">Your Twitter Username</label>
-                            <input type="text" id="input-username" placeholder="@handle" class="w-full p-3 apec-input font-bold outline-none">
-                            <button onclick="submitTwitterHandle()" class="w-full apec-btn apec-btn-red py-3">Verify and Proceed</button>
+                        <button onclick="triggerTaskAction(1, 'https://x.com/APECETH')" class="w-full cartoon-btn py-3 text-md">Follow @APECETH</button>
+                        <div id="field-username-container" class="hidden space-y-2 pt-2">
+                            <label class="block text-xs uppercase text-stone-400 font-bold">Provide Twitter Username</label>
+                            <input type="text" id="input-username" placeholder="@handle" class="w-full p-3 cartoon-input font-bold outline-none">
+                            <button onclick="saveUsername()" class="w-full cartoon-btn cartoon-btn-red py-3">Confirm and Unlock Task 2</button>
                         </div>
                     </div>
 
                     <div id="step-2" class="hidden space-y-4">
                         <div class="bg-stone-900 p-4 border-2 border-stone-800">
-                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Task 2 of 4</span>
-                            <h3 class="text-lg font-black">Repost Official Post</h3>
+                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Mission Task 2 of 4</span>
+                            <h3 class="text-lg font-black">Repost the Official Collection Post</h3>
                         </div>
-                        <a href="https://x.com" target="_blank" onclick="triggerWlTaskAction(2)" class="block text-center w-full apec-btn py-3">Repost</a>
+                        <button onclick="triggerTaskAction(2, 'https://x.com')" class="w-full cartoon-btn py-3">Repost</button>
                     </div>
 
                     <div id="step-3" class="hidden space-y-4">
                         <div class="bg-stone-900 p-4 border-2 border-stone-800">
-                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Task 3 of 4</span>
-                            <h3 class="text-lg font-black">Like Official Post</h3>
+                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Mission Task 3 of 4</span>
+                            <h3 class="text-lg font-black">Like the Official Collection Post</h3>
                         </div>
-                        <a href="https://x.com" target="_blank" onclick="triggerWlTaskAction(3)" class="block text-center w-full apec-btn py-3">Like</a>
+                        <button onclick="triggerTaskAction(3, 'https://x.com')" class="w-full cartoon-btn py-3">Like</button>
                     </div>
 
                     <div id="step-4" class="hidden space-y-4">
                         <div class="bg-stone-900 p-4 border-2 border-stone-800">
-                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Task 4 of 4</span>
-                            <h3 class="text-lg font-black">Comment Official Post</h3>
+                            <span class="text-yellow-400 text-xs uppercase font-mono block mb-1">Mission Task 4 of 4</span>
+                            <h3 class="text-lg font-black">Comment on Official Post</h3>
                             <p class="text-stone-400 text-xs mt-1 font-bold">Tag 3 friends. Add your wallet address.</p>
                         </div>
-                        <a href="https://x.com" target="_blank" onclick="triggerWlTaskAction(4)" class="block text-center w-full apec-btn py-3">Comment Official Post</a>
-                        <div id="comment-url-field" class="hidden space-y-2 pt-2">
-                            <label class="block text-xs uppercase text-stone-400 font-bold">Paste Comment Link</label>
-                            <input type="url" id="input-comment-link" placeholder="https://x.com/.../status/..." class="w-full p-3 apec-input font-bold outline-none text-sm">
-                            <button onclick="verifyCommentUrlString()" class="w-full apec-btn apec-btn-red py-3">Validate Link String</button>
+                        <button onclick="triggerTaskAction(4, 'https://x.com')" class="w-full cartoon-btn py-3">Comment Official Post</button>
+                        <div id="field-comment-container" class="hidden space-y-2 pt-2">
+                            <label class="block text-xs uppercase text-stone-400 font-bold">Paste Comment Status Link</label>
+                            <input type="url" id="input-comment-link" placeholder="https://x.com/.../status/..." class="w-full p-3 cartoon-input font-bold outline-none text-sm">
+                            <button onclick="verifyCommentLink()" class="w-full cartoon-btn cartoon-btn-red py-3">Validate Comment URL</button>
                         </div>
                     </div>
 
-                    <div id="step-builder" class="hidden space-y-4">
+                    <div id="step-final" class="hidden space-y-4">
                         <div class="bg-stone-900 p-4 border-2 border-stone-800">
-                            <span class="text-green-400 text-xs uppercase font-mono block mb-1">Final Clearance</span>
-                            <h3 class="text-lg font-black">Follow Builder</h3>
+                            <span class="text-green-400 text-xs uppercase font-mono block mb-1">Ecosystem Clearance</span>
+                            <h3 class="text-lg font-black">Follow the Builder</h3>
                         </div>
-                        <a href="https://x.com/froganeth" target="_blank" onclick="triggerWlTaskAction(5)" class="block text-center w-full apec-btn py-3">Follow @froganeth</a>
+                        <button onclick="triggerTaskAction(5, 'https://x.com/froganeth')" class="w-full cartoon-btn py-3">Follow @froganeth</button>
                     </div>
 
-                    <div id="step-wallet-form" class="hidden space-y-4 pt-4 border-t-4 border-dashed border-stone-800">
+                    <div id="step-form" class="hidden space-y-4 pt-4 border-t-4 border-dashed border-stone-800">
                         <div class="space-y-2">
                             <label class="block text-xs uppercase text-stone-400 font-bold">Ethereum Wallet Address</label>
-                            <input type="text" id="input-wallet" placeholder="0x..." class="w-full p-3 apec-input font-mono outline-none">
+                            <input type="text" id="input-wallet" placeholder="0x..." class="w-full p-3 cartoon-input font-mono outline-none">
                         </div>
-                        <button onclick="transmitRegistryPayload()" class="w-full apec-btn apec-btn-red py-4 text-md">Request Whitelist Entry</button>
+                        <button onclick="dispatchRegistryPayload()" class="w-full cartoon-btn cartoon-btn-red py-4 text-md">Register Registry Clearance</button>
                     </div>
                 </div>
 
-                <div id="whitelist-loading-screen" class="hidden text-center py-12 space-y-4">
+                <div id="mission-loading" class="hidden text-center py-12 space-y-4">
                     <div class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto"></div>
-                    <p class="text-sm font-bold tracking-widest text-stone-400 uppercase">Querying Google Sheets Node Base...</p>
+                    <p class="text-sm font-bold tracking-widest text-stone-400 uppercase">Synchronizing Secure Ledger Entries...</p>
                 </div>
 
-                <div id="whitelist-success-screen" class="hidden space-y-6">
-                    <div id="card-graphic-container" class="bg-black p-4 border-4 border-white apec-frame-white relative overflow-hidden aspect-[1.586/1] max-w-sm mx-auto">
+                <div id="mission-success" class="hidden space-y-6">
+                    <div id="card-graphic-wrapper" class="bg-black p-4 border-4 border-white cartoon-box-white relative overflow-hidden aspect-[1.586/1] max-w-sm mx-auto">
                         <div class="flex justify-between items-start border-b-2 border-stone-800 pb-1 mb-2">
                             <span class="text-[9px] font-mono font-bold tracking-wider text-stone-400">APEC COMMUNITY CARD</span>
                             <span class="text-[9px] font-mono text-stone-500">SECURE LOG</span>
                         </div>
                         <div class="grid grid-cols-3 gap-3 items-center">
-                            <img id="card-avatar-src" src="https://i.ibb.co.com/vC2t233P/53.png" crossorigin="anonymous" class="border-2 border-black apec-frame col-span-1 w-full h-auto">
+                            <img id="card-avatar" src="https://i.ibb.co.com/vC2t233P/53.png" crossorigin="anonymous" class="border-2 border-black cartoon-box col-span-1 w-full h-auto">
                             <div class="col-span-2 text-[11px] font-mono space-y-1">
-                                <p><span class="text-stone-500">HANDLE:</span> <span id="card-ui-username" class="text-white font-bold"></span></p>
-                                <p><span class="text-stone-500">MEMBER:</span> <span id="card-ui-number" class="text-yellow-400 font-bold"></span></p>
+                                <p><span class="text-stone-500">HANDLE:</span> <span id="lbl-card-user" class="text-white font-bold"></span></p>
+                                <p><span class="text-stone-500">MEMBER:</span> <span id="lbl-card-num" class="text-yellow-400 font-bold"></span></p>
                                 <p><span class="text-stone-500">ACCESS:</span> <span class="text-green-400 font-bold">FREE MINT</span></p>
                                 <p><span class="text-stone-500">DATE:</span> <span class="text-white">06.25.2026</span></p>
                                 <p class="text-[8px] text-stone-600 pt-1">apeconchain.xyz</p>
@@ -323,20 +322,20 @@
                         </div>
                     </div>
 
-                    <canvas id="export-canvas" width="634" height="400" class="hidden"></canvas>
+                    <canvas id="card-canvas" width="634" height="400" class="hidden"></canvas>
 
                     <div class="space-y-4 max-w-sm mx-auto">
-                        <button id="btn-action-download" onclick="triggerPremiumCardExport()" class="w-full apec-btn py-3">Download Card</button>
+                        <button id="btn-download-card" onclick="executeCardGenerationPipeline()" class="w-full cartoon-btn py-3">Download Card</button>
                         
-                        <div id="post-mission-box" class="hidden space-y-3 p-4 border-4 border-white apec-frame-white bg-stone-950">
+                        <div id="post-mission-panel" class="hidden space-y-3 p-4 border-4 border-white cartoon-box-white bg-stone-950">
                             <h4 class="text-xs uppercase tracking-wider text-yellow-400 font-black">POST MISSION ACTIVE</h4>
                             <p class="text-[11px] text-stone-400 font-bold leading-relaxed">Tell people about APEC. Share your Joined Number. Share your Community Card. Share whitelist page. Members who post may have up to 80% chance for GTD access.</p>
-                            <a id="btn-action-share" href="https://x.com" target="_blank" onclick="revealPostVerificationInput()" class="block text-center w-full apec-btn apec-btn-red py-2.5 text-sm">Share On X</a>
+                            <button id="btn-share-x" onclick="handleShareXClick('https://x.com')" class="block text-center w-full cartoon-btn cartoon-btn-red py-2.5 text-sm">Share On X</button>
                             
-                            <div id="post-link-input-area" class="hidden space-y-2 pt-1">
+                            <div id="share-link-input-area" class="hidden space-y-2 pt-1">
                                 <label class="block text-[10px] uppercase text-stone-500 font-bold">Paste verification post URL</label>
-                                <input type="url" id="input-post-link" placeholder="https://x.com/.../status/..." class="w-full p-2.5 text-xs apec-input font-bold outline-none">
-                                <button onclick="transmitPostMissionLink()" class="w-full apec-btn py-2 text-xs">Verify Mission Broadcast</button>
+                                <input type="url" id="input-post-link" placeholder="https://x.com/.../status/..." class="w-full p-2.5 text-xs cartoon-input font-bold outline-none">
+                                <button onclick="dispatchPostMissionVerification()" class="w-full cartoon-btn py-2 text-xs">Verify Mission Broadcast</button>
                             </div>
                         </div>
                     </div>
@@ -345,97 +344,97 @@
             </div>
         </div>
 
-        <div id="window-mint" class="window-pane w-full max-w-md bg-black border-[6px] border-black apec-frame-white hidden window-open-animation overflow-hidden my-auto">
+        <div id="window-mint" class="window-panel w-full max-w-md bg-black border-[6px] border-black cartoon-box-white hidden window-animate overflow-hidden my-auto">
             <div class="bg-white text-black p-3 flex justify-between items-center border-b-4 border-black">
-                <span class="font-black uppercase tracking-wider text-lg">Mint Portal</span>
+                <span class="font-black uppercase tracking-wider text-lg">Mint Station</span>
                 <button onclick="closeActiveFolder()" class="bg-black text-white px-3 py-1 font-black text-sm border-2 border-black hover:bg-stone-800 transition-colors">X</button>
             </div>
             <div class="p-6 text-center text-white space-y-6">
                 <div>
-                    <span class="text-xs text-stone-500 uppercase font-bold tracking-widest block mb-2">Countdown to Open</span>
-                    <div id="countdown-matrix" class="grid grid-cols-4 gap-2 font-mono text-2xl font-bold bg-stone-950 p-3 border-2 border-stone-800">
-                        <div><span id="day-node">00</span><span class="block text-[9px] text-stone-600">D</span></div>
-                        <div><span id="hour-node">00</span><span class="block text-[9px] text-stone-600">H</span></div>
-                        <div><span id="minute-node">00</span><span class="block text-[9px] text-stone-600">M</span></div>
-                        <div><span id="second-node">00</span><span class="block text-[9px] text-stone-600">S</span></div>
+                    <span class="text-xs text-stone-500 uppercase font-bold tracking-widest block mb-2">Countdown to Distribution</span>
+                    <div id="countdown-display" class="grid grid-cols-4 gap-2 font-mono text-2xl font-bold bg-stone-950 p-3 border-2 border-stone-800">
+                        <div><span id="timer-d">00</span><span class="block text-[9px] text-stone-600">D</span></div>
+                        <div><span id="timer-h">00</span><span class="block text-[9px] text-stone-600">H</span></div>
+                        <div><span id="timer-m">00</span><span class="block text-[9px] text-stone-600">M</span></div>
+                        <div><span id="timer-s">00</span><span class="block text-[9px] text-stone-600">S</span></div>
                     </div>
                 </div>
 
-                <div id="mint-activation-zone" class="border-t-4 border-dashed border-stone-900 pt-4">
-                    <p class="text-xs text-stone-400 font-bold mb-4">The smart deployment engine triggers initialization at the dynamic index above.</p>
-                    <button id="btn-mint-execution" disabled class="w-full apec-btn py-4 text-lg">Mint Window Closed</button>
+                <div id="mint-action-container" class="border-t-4 border-dashed border-stone-900 pt-4">
+                    <p class="text-xs text-stone-400 font-bold mb-4">The distribution pipeline activates directly at the exact timestamp specified above.</p>
+                    <button id="btn-mint-trigger" disabled onclick="handleGenericButtonClick(this)" class="w-full cartoon-btn py-4 text-lg">Mint Window Closed</button>
                 </div>
             </div>
         </div>
 
-        <div id="window-gallery" class="window-pane w-full max-w-3xl bg-black border-[6px] border-black apec-frame-white hidden window-open-animation overflow-hidden my-auto">
+        <div id="window-gallery" class="window-panel w-full max-w-3xl bg-black border-[6px] border-black cartoon-box-white hidden window-animate overflow-hidden my-auto">
             <div class="bg-white text-black p-3 flex justify-between items-center border-b-4 border-black">
-                <span class="font-black uppercase tracking-wider text-lg">APEC Collective Gallery</span>
+                <span class="font-black uppercase tracking-wider text-lg">APEC Digital Gallery</span>
                 <button onclick="closeActiveFolder()" class="bg-black text-white px-3 py-1 font-black text-sm border-2 border-black hover:bg-stone-800 transition-colors">X</button>
             </div>
-            <div class="p-4 md:p-6 max-h-[70vh] overflow-y-auto">
-                <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4"></div>
+            <div class="p-4 md:p-6 max-h-[75vh] overflow-y-auto">
+                <div id="gallery-render-matrix" class="grid grid-cols-2 sm:grid-cols-4 gap-4"></div>
             </div>
         </div>
 
-        <div id="window-roadmap" class="window-pane w-full max-w-xl bg-black border-[6px] border-black apec-frame-white hidden window-open-animation overflow-hidden my-auto">
+        <div id="window-roadmap" class="window-panel w-full max-w-xl bg-black border-[6px] border-black cartoon-box-white hidden window-animate overflow-hidden my-auto">
             <div class="bg-white text-black p-3 flex justify-between items-center border-b-4 border-black">
-                <span class="font-black uppercase tracking-wider text-lg">Ecosystem Blueprint</span>
+                <span class="font-black uppercase tracking-wider text-lg">APEC Roadmap</span>
                 <button onclick="closeActiveFolder()" class="bg-black text-white px-3 py-1 font-black text-sm border-2 border-black hover:bg-stone-800 transition-colors">X</button>
             </div>
-            <div class="p-6 text-white space-y-6 max-h-[65vh] overflow-y-auto font-sans">
+            <div class="p-6 text-white space-y-6 max-h-[70vh] overflow-y-auto font-sans">
                 <div class="border-l-4 border-white pl-4 ml-2 relative">
                     <div class="absolute -left-[10px] top-1 w-4 h-4 bg-white rounded-full border-4 border-black"></div>
                     <h4 class="font-black text-md text-yellow-400 uppercase tracking-wide">Phase 1: Community Growth</h4>
-                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Establish primary coordination pathways, complete active social distribution campaigns, and register verified collectors.</p>
+                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Establish base communication channels and scale collective organic footprint globally. Whitelist mission deployment.</p>
                 </div>
                 <div class="border-l-4 border-white pl-4 ml-2 relative">
                     <div class="absolute -left-[10px] top-1 w-4 h-4 bg-white rounded-full border-4 border-black"></div>
-                    <h4 class="font-black text-md text-green-400 uppercase tracking-wide">Phase 2: Distribution Events</h4>
-                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Launch safe non-custodial acquisition channels across designated execution environments. Secure verified allocation parameters.</p>
+                    <h4 class="font-black text-md text-green-400 uppercase tracking-wide">Phase 2: Asset Distribution</h4>
+                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Trigger custom distribution engine events for early members. Verification verification tracking loops live.</p>
                 </div>
                 <div class="border-l-4 border-white pl-4 ml-2 relative">
                     <div class="absolute -left-[10px] top-1 w-4 h-4 bg-white rounded-full border-4 border-black"></div>
                     <h4 class="font-black text-md text-blue-400 uppercase tracking-wide">Phase 3: Holder Rewards</h4>
-                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Deploy customized configuration assets, special physical drop validation pathways, and tier access vectors for active long-term collectors.</p>
+                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Deploy customized exclusive physical items access pathways and continuous ecosystem utilities for long term collectors.</p>
                 </div>
                 <div class="border-l-4 border-white pl-4 ml-2 relative">
                     <div class="absolute -left-[10px] top-1 w-4 h-4 bg-white rounded-full border-4 border-black"></div>
                     <h4 class="font-black text-md text-purple-400 uppercase tracking-wide">Phase 4: Future Expansion</h4>
-                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Establish interactive coordination environments, post-distribution system items, and cross-project integration models determined by the group.</p>
+                    <p class="text-xs text-stone-300 font-bold mt-1 leading-relaxed">Organize global real world interactive meetups and coordinate continuous creative expansions determined by the group.</p>
                 </div>
             </div>
         </div>
 
-        <div id="window-community" class="window-pane w-full max-w-md bg-black border-[6px] border-black apec-frame-white hidden window-open-animation overflow-hidden my-auto">
+        <div id="window-community" class="window-panel w-full max-w-md bg-black border-[6px] border-black cartoon-box-white hidden window-animate overflow-hidden my-auto">
             <div class="bg-white text-black p-3 flex justify-between items-center border-b-4 border-black">
-                <span class="font-black uppercase tracking-wider text-lg">Launchpad Poll</span>
+                <span class="font-black uppercase tracking-wider text-lg">Ecosystem Polls</span>
                 <button onclick="closeActiveFolder()" class="bg-black text-white px-3 py-1 font-black text-sm border-2 border-black hover:bg-stone-800 transition-colors">X</button>
             </div>
             <div class="p-6 text-white space-y-4">
                 <h3 class="text-base font-black text-center uppercase tracking-wide">Where should APEC launch?</h3>
                 
-                <div id="poll-selection-box" class="space-y-3">
-                    <button onclick="executeCommunityVoteSubmit(1)" class="w-full p-4 apec-btn text-left text-sm flex justify-between items-center">
+                <div id="vote-form" class="space-y-3">
+                    <button onclick="registerCommunityVote(1)" class="w-full p-4 cartoon-btn text-left text-sm flex justify-between items-center">
                         <span>OpenSea Launchpad</span>
                         <div class="w-4 h-4 rounded-full border-2 border-black"></div>
                     </button>
-                    <button onclick="executeCommunityVoteSubmit(2)" class="w-full p-4 apec-btn text-left text-sm flex justify-between items-center">
+                    <button onclick="registerCommunityVote(2)" class="w-full p-4 cartoon-btn text-left text-sm flex justify-between items-center">
                         <span>Custom Launchpad</span>
                         <div class="w-4 h-4 rounded-full border-2 border-black"></div>
                     </button>
                 </div>
 
-                <div id="poll-results-box" class="hidden space-y-4 bg-stone-950 p-4 border-2 border-stone-800">
-                    <h4 class="text-xs font-mono font-bold text-center text-stone-500 uppercase tracking-widest">Live System Metric</h4>
+                <div id="vote-results" class="hidden space-y-4 bg-stone-950 p-4 border-2 border-stone-800">
+                    <h4 class="text-xs font-mono font-bold text-center text-stone-500 uppercase tracking-widest">Live Dynamic Standing</h4>
                     <div class="space-y-3 font-mono text-xs">
                         <div>
                             <div class="flex justify-between mb-1"><span>OpenSea Launchpad</span><span id="metric-v1">0%</span></div>
-                            <div class="w-full bg-stone-900 h-3 border border-stone-700"><div id="bar-v1" class="bg-yellow-400 h-full transition-all duration-300" style="width: 0%"></div></div>
+                            <div class="w-full bg-stone-900 h-3 border border-stone-700"><div id="bar-v1" class="bg-yellow-400 h-full transition-all duration-500" style="width: 0%"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1"><span>Custom Launchpad</span><span id="metric-v2">0%</span></div>
-                            <div class="w-full bg-stone-900 h-3 border border-stone-700"><div id="bar-v2" class="bg-green-400 h-full transition-all duration-300" style="width: 0%"></div></div>
+                            <div class="w-full bg-stone-900 h-3 border border-stone-700"><div id="bar-v2" class="bg-green-400 h-full transition-all duration-500" style="width: 0%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -444,60 +443,56 @@
 
     </div>
 
-    <div id="urgency-alert-overlay" class="fixed inset-0 bg-red-600 z-50 hidden flex flex-col items-center justify-center text-center p-4 select-none glow-red">
-        <div class="bg-black text-white p-8 border-[8px] border-black apec-frame transform rotate-[-1.5deg] max-w-md w-full">
-            <h1 class="text-4xl font-black text-red-500 uppercase tracking-tight mb-2">WL CLOSES SOON</h1>
+    <div id="urgency-overlay" class="fixed inset-0 bg-red-600 z-50 hidden flex flex-col items-center justify-center text-center p-4 select-none soft-glow-red">
+        <div class="bg-black text-white p-8 border-[8px] border-black cartoon-box transform rotate-[-2deg] max-w-md w-full">
+            <h1 class="text-4xl font-black text-red-500 uppercase tracking-tight animate-pulse mb-2">WL CLOSES SOON</h1>
             <p class="text-2xl font-black mb-4">06.24.2026</p>
             <span class="bg-red-600 text-black font-mono font-black text-xl px-4 py-1.5 inline-block">20:00 UTC</span>
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script>
-        const SECURE_BACKEND_INFRASTRUCTURE = {
-            DEPLOYED_ROUTE: "##SECRET_APPS_SCRIPT_URL##"
-        };
-
-        const AUDIO_RESOURCE_REGISTRY = {
-            wlTask: "https://soundkings.github.io/audios/ah.mp3",
-            memeSuccess: "https://soundkings.github.io/audios/meme.mp3",
-            voteBtn: "https://soundkings.github.io/audios/ya.mp3",
-            defaultBtn: "https://soundkings.github.io/audios/clicker.mp3"
-        };
-
-        const AudioProcessorNode = {
-            pools: {},
-            preFetchAll() {
-                Object.keys(AUDIO_RESOURCE_REGISTRY).forEach(key => {
-                    const audio = new Audio();
-                    audio.src = AUDIO_RESOURCE_REGISTRY[key];
-                    audio.preload = "auto";
-                    this.pools[key] = audio;
-                });
+        const AudioPipeline = {
+            playTaskAudio() {
+                const audio = new Audio('https://soundkings.github.io/audios/ah.mp3');
+                audio.play().catch(()=>{});
             },
-            play(key) {
-                try {
-                    if (this.pools[key]) {
-                        this.pools[key].currentTime = 0;
-                        this.pools[key].play().catch(() => {});
-                    } else {
-                        const fallback = new Audio(AUDIO_RESOURCE_REGISTRY[key]);
-                        fallback.play().catch(() => {});
-                    }
-                } catch(e) {}
+            playMemeAudio() {
+                const audio = new Audio('https://soundkings.github.io/audios/meme.mp3');
+                audio.play().catch(()=>{});
+            },
+            playVoteAudio() {
+                const audio = new Audio('https://soundkings.github.io/audios/ya.mp3');
+                audio.play().catch(()=>{});
+            },
+            playClickAudio() {
+                const audio = new Audio('https://soundkings.github.io/audios/clicker.mp3');
+                audio.play().catch(()=>{});
             }
         };
-        AudioProcessorNode.preFetchAll();
 
-        const TargetDeadlines = {
+        function triggerCustomAlert(title, message) {
+            document.getElementById('custom-alert-title').innerText = title;
+            document.getElementById('custom-alert-msg').innerText = message;
+            document.getElementById('custom-alert').classList.remove('hidden');
+        }
+
+        function dismissAlert() {
+            AudioPipeline.playClickAudio();
+            document.getElementById('custom-alert').classList.add('hidden');
+        }
+
+        const TimeTargets = {
             whitelistClose: new Date(Date.UTC(2026, 5, 24, 20, 0, 0)),
-            mintLaunch: new Date(Date.UTC(2026, 5, 25, 12, 0, 0))
+            mintOpen: new Date(Date.UTC(2026, 5, 25, 12, 0, 0))
         };
 
-        let AppWorkflowState = { username: "", wallet: "", commentLink: "", sequenceIndex: null };
-        let LocalPollState = { voted: false, countOpt1: 142, countOpt2: 98 };
-        let RenderedAssetCache = {};
+        let RegistrationData = { username: "", wallet: "", commentLink: "", joinedNum: null };
+        let LocalState = { hasVoted: false, votesV1: 184, votesV2: 122 };
+        let RevealedAssets = {};
 
-        const CollectionArtworkManifest = [
+        const AssetManifest = [
             "https://i.ibb.co.com/vC2t233P/53.png", "https://i.ibb.co.com/tMkQDSjW/2.jpg",
             "https://i.ibb.co.com/FkK2gdSd/28.jpg", "https://i.ibb.co.com/N2msbc6v/29.jpg",
             "https://i.ibb.co.com/Qj7r2jJB/34.jpg", "https://i.ibb.co.com/wh9CpChq/50.jpg",
@@ -510,367 +505,367 @@
             "https://i.ibb.co.com/chxdsfCM/534.jpg", "https://i.ibb.co.com/TxcmL8Jn/318.jpg"
         ];
 
-        function triggerSystemClick(event) {
-            AudioProcessorNode.play('defaultBtn');
-        }
-
-        function triggerCustomNotificationAlert(msg) {
-            document.getElementById('apec-alert-msg').innerText = msg;
-            document.getElementById('apec-alert-box').classList.remove('hidden');
-        }
-
-        function dismissCustomAlert() {
-            AudioProcessorNode.play('defaultBtn');
-            document.getElementById('apec-alert-box').classList.add('hidden');
-        }
-
-        function openApecFolder(id) {
-            AudioProcessorNode.play('defaultBtn');
-            document.getElementById('modal-container').classList.remove('hidden');
-            document.querySelectorAll('.window-pane').forEach(p => p.classList.add('hidden'));
+        function openFolder(id) {
+            AudioPipeline.playClickAudio();
+            document.getElementById('modal-overlay').classList.remove('hidden');
+            document.querySelectorAll('.window-panel').forEach(w => w.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
-            if (id === 'window-gallery') buildCollectionGalleryElements();
-            if (id === 'window-community') buildPollDashboardMetrics();
+            if (id === 'window-gallery') renderGalleryMatrix();
+            if (id === 'window-community') renderVotePanel();
         }
 
         function closeActiveFolder() {
-            AudioProcessorNode.play('defaultBtn');
-            document.getElementById('modal-container').classList.add('hidden');
+            AudioPipeline.playClickAudio();
+            document.getElementById('modal-overlay').classList.add('hidden');
         }
 
-        function triggerLockedFeedback() {
-            AudioProcessorNode.play('defaultBtn');
-            triggerCustomNotificationAlert("Coming Later");
+        function triggerLockedPrompt() {
+            AudioPipeline.playClickAudio();
+            triggerCustomAlert("Locked", "Coming Later");
         }
 
-        function triggerWlTaskAction(stepNum) {
-            AudioProcessorNode.play('wlTask');
-            if (stepNum === 1) {
-                document.getElementById('username-input-field').classList.remove('hidden');
-            } else if (stepNum === 2) {
+        function handleGenericClick(event) {
+            AudioPipeline.playClickAudio();
+        }
+
+        function handleGenericButtonClick(btn) {
+            AudioPipeline.playClickAudio();
+        }
+
+        function triggerTaskAction(step, url) {
+            AudioPipeline.playTaskAudio();
+            window.open(url, '_blank');
+            if (step === 1) {
+                document.getElementById('field-username-container').classList.remove('hidden');
+            } else if (step === 2) {
                 document.getElementById('step-2').classList.add('hidden');
                 document.getElementById('step-3').classList.remove('hidden');
-            } else if (stepNum === 3) {
+            } else if (step === 3) {
                 document.getElementById('step-3').classList.add('hidden');
                 document.getElementById('step-4').classList.remove('hidden');
-            } else if (stepNum === 4) {
-                document.getElementById('comment-url-field').classList.remove('hidden');
-            } else if (stepNum === 5) {
-                document.getElementById('step-builder').classList.add('hidden');
-                document.getElementById('step-wallet-form').classList.remove('hidden');
+            } else if (step === 4) {
+                document.getElementById('field-comment-container').classList.remove('hidden');
+            } else if (step === 5) {
+                unlockWalletForm();
             }
         }
 
-        function submitTwitterHandle() {
-            AudioProcessorNode.play('defaultBtn');
-            const handle = document.getElementById('input-username').value.trim();
-            if (!handle.startsWith('@') || handle.length < 2) {
-                triggerCustomNotificationAlert("Handle configuration syntax requires standard @ prefix rules.");
+        function saveUsername() {
+            AudioPipeline.playClickAudio();
+            const val = document.getElementById('input-username').value.trim();
+            if (!val.startsWith('@') || val.length < 2) {
+                triggerCustomAlert("Error", "Enter valid handle starting with @");
                 return;
             }
-            AppWorkflowState.username = handle;
+            RegistrationData.username = val;
             document.getElementById('step-1').classList.add('hidden');
             document.getElementById('step-2').classList.remove('hidden');
         }
 
-        function verifyCommentUrlString() {
-            AudioProcessorNode.play('defaultBtn');
-            const link = document.getElementById('input-comment-link').value.trim();
-            if (!link.includes('x.com') && !link.includes('twitter.com')) {
-                triggerCustomNotificationAlert("Provided input parameter breaks link string criteria definitions.");
+        function verifyCommentLink() {
+            AudioPipeline.playClickAudio();
+            const url = document.getElementById('input-comment-link').value.trim();
+            if (!url.includes('x.com') && !url.includes('twitter.com')) {
+                triggerCustomAlert("Error", "Invalid address link. Provide a valid X status URL.");
                 return;
             }
-            AppWorkflowState.commentLink = link;
-
-            if (navigator.vibrate) navigator.vibrate([150, 60, 150]);
+            RegistrationData.commentLink = url;
             
-            const frame = document.getElementById('window-whitelist');
-            frame.classList.add('glitch-active');
+            if (navigator.vibrate) navigator.vibrate([150, 50, 150]);
+            const audio = new Audio('https://soundkings.github.io/audios/clicker.mp3');
+            audio.play().catch(()=>{});
+            
+            const element = document.getElementById('window-whitelist');
+            element.classList.add('glitch-active');
             
             setTimeout(() => {
-                frame.classList.remove('glitch-active');
+                element.classList.remove('glitch-active');
                 document.getElementById('step-4').classList.add('hidden');
-                document.getElementById('step-builder').classList.remove('hidden');
-            }, 1600);
+                document.getElementById('step-final').classList.remove('hidden');
+            }, 1500);
         }
 
-        function transmitRegistryPayload() {
-            AudioProcessorNode.play('defaultBtn');
+        function unlockWalletForm() {
+            document.getElementById('step-final').classList.add('hidden');
+            document.getElementById('step-form').classList.remove('hidden');
+        }
+
+        function dispatchRegistryPayload() {
+            AudioPipeline.playClickAudio();
             const wallet = document.getElementById('input-wallet').value.trim();
             if (!wallet.startsWith('0x') || wallet.length !== 42) {
-                triggerCustomNotificationAlert("Target input string breaks canonical EVM hexadecimal layout requirements.");
+                triggerCustomAlert("Error", "Invalid Ethereum wallet address format.");
                 return;
             }
-            AppWorkflowState.wallet = wallet;
+            RegistrationData.wallet = wallet;
 
-            document.getElementById('whitelist-workflow').classList.add('hidden');
-            document.getElementById('whitelist-loading-screen').classList.remove('hidden');
+            document.getElementById('mission-wizard').classList.add('hidden');
+            document.getElementById('mission-loading').classList.remove('hidden');
 
-            const packagePayload = {
+            const payload = {
                 action: "register",
-                username: AppWorkflowState.username,
-                wallet: AppWorkflowState.wallet,
-                commentLink: AppWorkflowState.commentLink
+                username: RegistrationData.username,
+                wallet: RegistrationData.wallet,
+                commentLink: RegistrationData.commentLink
             };
 
-            if (SECURE_BACKEND_INFRASTRUCTURE.DEPLOYED_ROUTE.includes("##SECRET")) {
+            if (typeof SECURE_ENV_CONFIG === 'undefined' || SECURE_ENV_CONFIG.GATEWAY_ENDPOINT.includes("##SECRET")) {
                 setTimeout(() => {
-                    completeVerificationClearance(Math.floor(Math.random() * 120) + 1);
+                    completeClearanceSequence(Math.floor(Math.random() * 200) + 1);
                 }, 2500);
             } else {
-                fetch(SECURE_BACKEND_INFRASTRUCTURE.DEPLOYED_ROUTE, {
+                fetch(SECURE_ENV_CONFIG.GATEWAY_ENDPOINT, {
                     method: "POST",
                     mode: "no-cors",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(packagePayload)
+                    body: JSON.stringify(payload)
                 })
                 .then(() => {
-                    return fetch(`${SECURE_BACKEND_INFRASTRUCTURE.DEPLOYED_ROUTE}?action=getJoinedNumber&username=${encodeURIComponent(AppWorkflowState.username)}`);
+                    return fetch(`${SECURE_ENV_CONFIG.GATEWAY_ENDPOINT}?action=getJoinedNumber&username=${encodeURIComponent(RegistrationData.username)}`);
                 })
-                .then(r => r.json())
+                .then(res => res.json())
                 .then(data => {
                     if (data.duplicate) {
-                        triggerCustomNotificationAlert("Submission rejected. Account handle or wallet already listed.");
+                        triggerCustomAlert("Rejected", "Submission rejected. Account handle or wallet already listed.");
                         location.reload();
                         return;
                     }
-                    completeVerificationClearance(data.joinedNumber);
+                    completeClearanceSequence(data.joinedNumber);
                 })
                 .catch(() => {
-                    completeVerificationClearance(44);
+                    completeClearanceSequence(88); 
                 });
             }
         }
 
-        function completeVerificationClearance(assignedIndex) {
-            AppWorkflowState.sequenceIndex = assignedIndex;
+        function completeClearanceSequence(num) {
+            AudioPipeline.playMemeAudio();
+            RegistrationData.joinedNum = num;
+            document.getElementById('mission-loading').classList.add('hidden');
+            document.getElementById('mission-success').classList.remove('hidden');
             
-            AudioProcessorNode.play('memeSuccess');
-
-            document.getElementById('whitelist-loading-screen').classList.add('hidden');
-            document.getElementById('whitelist-success-screen').classList.remove('hidden');
-            
-            document.getElementById('card-ui-username').innerText = AppWorkflowState.username;
-            document.getElementById('card-ui-number').innerText = "#" + String(assignedIndex).padStart(3, '0');
+            document.getElementById('lbl-card-user').innerText = RegistrationData.username;
+            document.getElementById('lbl-card-num').innerText = "#" + String(num).padStart(3, '0');
         }
 
-        function triggerPremiumCardExport() {
-            AudioProcessorNode.play('defaultBtn');
-            const canvas = document.getElementById('export-canvas');
+        function executeCardGenerationPipeline() {
+            AudioPipeline.playClickAudio();
+            const canvas = document.getElementById('card-canvas');
             const ctx = canvas.getContext('2d');
             
             ctx.fillStyle = '#000000';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
             ctx.strokeStyle = '#ffffff';
-            ctx.lineWidth = 12;
-            ctx.strokeRect(6, 6, canvas.width - 12, canvas.height - 12);
+            ctx.lineWidth = 10;
+            ctx.strokeRect(5, 5, canvas.width - 10, canvas.height - 10);
             
-            ctx.fillStyle = '#666666';
+            ctx.fillStyle = '#888888';
             ctx.font = "bold 16px 'Space Mono', monospace";
-            ctx.fillText("APEC COMMUNITY CARD", 35, 50);
-            ctx.fillText("SECURE LOG", 495, 50);
+            ctx.fillText("APEC COMMUNITY CARD", 30, 45);
+            ctx.fillText("SECURE LOG", 500, 45);
             
-            ctx.strokeStyle = '#1A1A1A';
+            ctx.strokeStyle = '#222222';
             ctx.lineWidth = 4;
             ctx.beginPath();
-            ctx.moveTo(30, 70);
-            ctx.lineTo(604, 70);
+            ctx.moveTo(25, 65);
+            ctx.lineTo(609, 65);
             ctx.stroke();
 
-            const imageRef = new Image();
-            imageRef.crossOrigin = "anonymous";
-            imageRef.onload = function() {
-                ctx.drawImage(imageRef, 35, 100, 160, 160);
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            img.onload = function() {
+                ctx.drawImage(img, 30, 95, 160, 160);
                 ctx.strokeStyle = '#ffffff';
                 ctx.lineWidth = 6;
-                ctx.strokeRect(35, 100, 160, 160);
+                ctx.strokeRect(30, 95, 160, 160);
                 
-                ctx.fillStyle = '#555555';
+                ctx.fillStyle = '#888888';
                 ctx.font = "18px 'Space Mono', monospace";
-                ctx.fillText("HANDLE:", 225, 130);
-                ctx.fillText("MEMBER:", 225, 170);
-                ctx.fillText("ACCESS:", 225, 210);
-                ctx.fillText("DATE:",   225, 250);
+                ctx.fillText("HANDLE:", 220, 125);
+                ctx.fillText("MEMBER:", 220, 165);
+                ctx.fillText("ACCESS:", 220, 205);
+                ctx.fillText("DATE:",   220, 245);
                 
                 ctx.fillStyle = '#ffffff';
-                ctx.font = "bold 22px 'Fredoka', sans-serif";
-                ctx.fillText(AppWorkflowState.username, 315, 130);
+                ctx.font = "bold 20px 'Fredoka', sans-serif";
+                ctx.fillText(RegistrationData.username, 310, 125);
                 
                 ctx.fillStyle = '#FFD214';
-                ctx.fillText("#" + String(AppWorkflowState.sequenceIndex).padStart(3, '0'), 315, 170);
+                ctx.fillText("#" + String(RegistrationData.joinedNum).padStart(3, '0'), 310, 165);
                 
                 ctx.fillStyle = '#14FF73';
-                ctx.fillText("FREE MINT", 315, 210);
+                ctx.fillText("FREE MINT", 310, 205);
                 
                 ctx.fillStyle = '#ffffff';
-                ctx.fillText("06.25.2026", 315, 250);
+                ctx.fillText("06.25.2026", 310, 245);
 
-                ctx.fillStyle = '#444444';
+                ctx.fillStyle = '#333333';
                 ctx.font = "14px 'Space Mono', monospace";
-                ctx.fillText("apeconchain.xyz", 35, 365);
+                ctx.fillText("apeconchain.xyz", 30, 365);
                 
                 ctx.save();
-                ctx.translate(490, 290);
+                ctx.translate(480, 280);
                 ctx.rotate(-12 * Math.PI / 180);
                 
                 ctx.fillStyle = '#000000';
-                ctx.fillRect(-105, -35, 210, 70);
+                ctx.fillRect(-100, -35, 200, 70);
                 
                 ctx.strokeStyle = '#14FF73';
                 ctx.lineWidth = 6;
-                ctx.strokeRect(-105, -35, 210, 70);
+                ctx.strokeRect(-100, -35, 200, 70);
                 
                 ctx.fillStyle = '#14FF73';
-                ctx.font = "900 32px 'Fredoka', sans-serif";
+                ctx.font = "black 32px 'Fredoka', sans-serif";
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
                 ctx.fillText("JOINED", 0, 2);
                 ctx.restore();
                 
-                const frameURL = canvas.toDataURL("image/png");
-                const downLink = document.createElement('a');
-                downLink.download = `APEC_Community_Card_${AppWorkflowState.sequenceIndex}.png`;
-                downLink.href = frameURL;
-                document.body.appendChild(downLink);
-                downLink.click();
-                document.body.removeChild(downLink);
+                const dataURL = canvas.toDataURL("image/png");
+                const anchor = document.createElement('a');
+                anchor.download = `APEC_Community_Card_${RegistrationData.joinedNum}.png`;
+                anchor.href = dataURL;
+                document.body.appendChild(anchor);
+                anchor.click();
+                document.body.removeChild(anchor);
                 
-                document.getElementById('btn-action-download').classList.add('hidden');
-                document.getElementById('post-mission-box').classList.remove('hidden');
+                document.getElementById('btn-download-card').classList.add('hidden');
+                document.getElementById('post-mission-panel').classList.remove('hidden');
             };
-            imageRef.src = document.getElementById('card-avatar-src').src;
+            img.src = document.getElementById('card-avatar').src;
         }
 
-        function revealPostVerificationInput() {
-            document.getElementById('post-link-input-area').classList.remove('hidden');
+        function handleShareXClick(url) {
+            AudioPipeline.playClickAudio();
+            window.open(url, '_blank');
+            document.getElementById('share-link-input-area').classList.remove('hidden');
         }
 
-        function transmitPostMissionLink() {
-            AudioProcessorNode.play('defaultBtn');
-            const linkStr = document.getElementById('input-post-link').value.trim();
-            if (!linkStr.includes('x.com') && !linkStr.includes('twitter.com')) {
-                triggerCustomNotificationAlert("Verification string breaks format check parameters.");
+        function dispatchPostMissionVerification() {
+            AudioPipeline.playClickAudio();
+            const url = document.getElementById('input-post-link').value.trim();
+            if (!url.includes('x.com') && !url.includes('twitter.com')) {
+                triggerCustomAlert("Error", "Provide a valid matching broadcast post verification link.");
                 return;
             }
 
-            if (!SECURE_BACKEND_INFRASTRUCTURE.DEPLOYED_ROUTE.includes("##SECRET")) {
-                fetch(SECURE_BACKEND_INFRASTRUCTURE.DEPLOYED_ROUTE, {
+            if (typeof SECURE_ENV_CONFIG !== 'undefined' && !SECURE_ENV_CONFIG.GATEWAY_ENDPOINT.includes("##SECRET")) {
+                fetch(SECURE_ENV_CONFIG.GATEWAY_ENDPOINT, {
                     method: "POST",
                     mode: "no-cors",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         action: "submitPostLink",
-                        username: AppWorkflowState.username,
-                        postLink: linkStr
+                        username: RegistrationData.username,
+                        postLink: url
                     })
                 });
             }
-            triggerCustomNotificationAlert("Ecosystem transmission received. Allocation path priority index enhanced.");
+            triggerCustomAlert("Success", "Mission logged successfully. Your distribution priority vector has been optimized.");
             closeActiveFolder();
         }
 
-        function buildCollectionGalleryElements() {
-            const wrapper = document.getElementById('gallery-grid');
-            wrapper.innerHTML = "";
-            CollectionArtworkManifest.forEach((url, idx) => {
-                const item = document.createElement('div');
-                item.className = "relative aspect-square bg-stone-950 border-4 border-black apec-frame-white cursor-pointer overflow-hidden group select-none flex items-center justify-center";
+        function renderGalleryMatrix() {
+            const target = document.getElementById('gallery-render-matrix');
+            target.innerHTML = "";
+            AssetManifest.forEach((url, i) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = "relative aspect-square bg-stone-950 border-4 border-black cartoon-box-white cursor-pointer overflow-hidden group select-none flex items-center justify-center";
                 
-                if (RenderedAssetCache[idx]) {
-                    item.innerHTML = `<img src="${url}" class="w-full h-full object-cover">`;
+                if (RevealedAssets[i]) {
+                    wrapper.innerHTML = `<img src="${url}" class="w-full h-full object-cover">`;
                 } else {
-                    item.innerHTML = `
-                        <span class="font-mono text-stone-800 text-xs font-bold tracking-widest">APEC</span>
-                        <div id="gallery-stamp-${idx}" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center z-10">
-                            <span class="border-4 border-red-600 bg-black text-red-600 text-[10px] font-black px-2 py-1 transform rotate-[-12deg] tracking-wider">REVEAL</span>
+                    wrapper.innerHTML = `
+                        <span class="font-mono text-stone-800 text-sm font-bold tracking-widest">APEC</span>
+                        <div id="stamp-${i}" class="hidden absolute inset-0 bg-black/40 flex items-center justify-center z-10">
+                            <span class="border-4 border-red-600 bg-black text-red-600 text-xs font-black px-2 py-1 transform rotate-[-15deg] tracking-widest">REVEAL</span>
                         </div>
                     `;
-                    item.onclick = () => {
-                        AudioProcessorNode.play('defaultBtn');
-                        document.getElementById(`gallery-stamp-${idx}`).classList.remove('hidden');
+                    wrapper.onclick = () => {
+                        AudioPipeline.playClickAudio();
+                        document.getElementById(`stamp-${i}`).classList.remove('hidden');
                         setTimeout(() => {
-                            RenderedAssetCache[idx] = true;
-                            buildCollectionGalleryElements();
-                        }, 400);
+                            RevealedAssets[i] = true;
+                            renderGalleryMatrix();
+                        }, 500);
                     };
                 }
-                wrapper.appendChild(item);
+                target.appendChild(wrapper);
             });
         }
 
-        function executeCommunityVoteSubmit(id) {
-            if (new Date() > TargetDeadlines.whitelistClose) {
-                triggerCustomNotificationAlert("Ecosystem configuration window terminated automatically.");
+        function registerCommunityVote(choice) {
+            if (new Date() > TimeTargets.whitelistClose) {
+                triggerCustomAlert("Notice", "Voting windows terminated automatically upon Whitelist closure.");
                 return;
             }
-            if (LocalPollState.voted) return;
-            AudioProcessorNode.play('voteBtn');
-            LocalPollState.voted = true;
+            if (LocalState.hasVoted) return;
+            AudioPipeline.playVoteAudio();
+            LocalState.hasVoted = true;
 
-            if (id === 1) LocalPollState.countOpt1++;
-            if (id === 2) LocalPollState.countOpt2++;
+            if (choice === 1) LocalState.votesV1++;
+            if (choice === 2) LocalState.votesV2++;
 
-            if (!SECURE_BACKEND_INFRASTRUCTURE.DEPLOYED_ROUTE.includes("##SECRET")) {
-                fetch(SECURE_BACKEND_INFRASTRUCTURE.DEPLOYED_ROUTE, {
+            if (typeof SECURE_ENV_CONFIG !== 'undefined' && !SECURE_ENV_CONFIG.GATEWAY_ENDPOINT.includes("##SECRET")) {
+                fetch(SECURE_ENV_CONFIG.GATEWAY_ENDPOINT, {
                     method: "POST",
                     mode: "no-cors",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ action: "vote", choice: id })
+                    body: JSON.stringify({ action: "vote", choice: choice })
                 });
             }
-            buildPollDashboardMetrics();
+            renderVotePanel();
         }
 
-        function buildPollDashboardMetrics() {
-            const cumulative = LocalPollState.countOpt1 + LocalPollState.countOpt2;
-            const percentage1 = Math.round((LocalPollState.countOpt1 / cumulative) * 100);
-            const percentage2 = 100 - percentage1;
+        function renderVotePanel() {
+            const total = LocalState.votesV1 + LocalState.votesV2;
+            const p1 = Math.round((LocalState.votesV1 / total) * 100);
+            const p2 = 100 - p1;
 
-            document.getElementById('metric-v1').innerText = percentage1 + "%";
-            document.getElementById('bar-v1').style.width = percentage1 + "%";
-            document.getElementById('metric-v2').innerText = percentage2 + "%";
-            document.getElementById('bar-v2').style.width = percentage2 + "%";
+            document.getElementById('metric-v1').innerText = p1 + "%";
+            document.getElementById('bar-v1').style.width = p1 + "%";
+            document.getElementById('metric-v2').innerText = p2 + "%";
+            document.getElementById('bar-v2').style.width = p2 + "%";
 
-            if (LocalPollState.voted || new Date() > TargetDeadlines.whitelistClose) {
-                document.getElementById('poll-selection-box').classList.add('hidden');
-                document.getElementById('poll-results-box').classList.remove('hidden');
+            if (LocalState.hasVoted || new Date() > TimeTargets.whitelistClose) {
+                document.getElementById('vote-form').classList.add('hidden');
+                document.getElementById('vote-results').classList.remove('hidden');
             }
         }
 
-        function stepMainSystemCountdownClock() {
-            const separation = TargetDeadlines.mintLaunch - new Date();
-            if (separation < 0) {
-                document.getElementById('countdown-matrix').classList.add('hidden');
-                const trigger = document.getElementById('btn-mint-execution');
-                trigger.disabled = false;
-                trigger.className = "w-full apec-btn apec-btn-red py-4 text-xl";
-                trigger.innerText = "Mint Collection Piece";
-                trigger.onclick = () => {
-                    AudioProcessorNode.play('defaultBtn');
-                    triggerCustomNotificationAlert("Initialize web3 network connection logic structures.");
+        function stepDistributionTimers() {
+            const distance = TimeTargets.mintOpen - new Date();
+            if (distance < 0) {
+                document.getElementById('countdown-display').classList.add('hidden');
+                const btn = document.getElementById('btn-mint-trigger');
+                btn.disabled = false;
+                btn.className = "w-full cartoon-btn cartoon-btn-red py-4 text-xl";
+                btn.innerText = "Execute Public Mint";
+                btn.onclick = () => {
+                    AudioPipeline.playClickAudio();
+                    triggerCustomAlert("Notice", "Connect provider to complete allocation execution routing.");
                 };
                 return;
             }
-            const d = Math.floor(separation / 86400000);
-            const h = Math.floor((separation % 86400000) / 3600000);
-            const m = Math.floor((separation % 3600000) / 60000);
-            const s = Math.floor((separation % 60000) / 1000);
+            const d = Math.floor(distance / 86400000);
+            const h = Math.floor((distance % 86400000) / 3600000);
+            const m = Math.floor((distance % 3600000) / 60000);
+            const s = Math.floor((distance % 60000) / 1000);
 
-            document.getElementById('day-node').innerText = String(d).padStart(2, '0');
-            document.getElementById('hour-node').innerText = String(h).padStart(2, '0');
-            document.getElementById('minute-node').innerText = String(m).padStart(2, '0');
-            document.getElementById('second-node').innerText = String(s).padStart(2, '0');
+            document.getElementById('timer-d').innerText = String(d).padStart(2, '0');
+            document.getElementById('timer-h').innerText = String(h).padStart(2, '0');
+            document.getElementById('timer-m').innerText = String(m).padStart(2, '0');
+            document.getElementById('timer-s').innerText = String(s).padStart(2, '0');
         }
-        setInterval(stepMainSystemCountdownClock, 1000);
-        stepMainSystemCountdownClock();
+        setInterval(stepDistributionTimers, 1000);
+        stepDistributionTimers();
 
         setInterval(() => {
-            AudioProcessorNode.play('defaultBtn');
-            if (navigator.vibrate) navigator.vibrate([200, 80, 200]);
-            const alarmPanel = document.getElementById('urgency-alert-overlay');
-            alarmPanel.classList.remove('hidden');
-            setTimeout(() => alarmPanel.classList.add('hidden'), 2200);
+            if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+            const alarm = document.getElementById('urgency-overlay');
+            alarm.classList.remove('hidden');
+            setTimeout(() => alarm.classList.add('hidden'), 2500);
         }, 60000);
     </script>
 </body>
